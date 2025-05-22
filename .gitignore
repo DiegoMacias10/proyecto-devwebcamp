@@ -1,0 +1,15 @@
+# PHP / Composer
+/vendor/
+
+# Node.js
+/node_modules/
+
+# Configuración de entorno
+.env
+
+# Sistema          
+.DS_Store
+
+# Archivos de base de datos locales excepto devwebcamp.sql
+*.sql
+!sql/devwebcamp.sql

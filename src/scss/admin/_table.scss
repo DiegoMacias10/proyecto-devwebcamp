@@ -1,0 +1,51 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.table {
+    width: 100%; //La tabla txoma todo el ancho disponible de la pantalla
+    border-collapse: collapse; //Elima el borde de la tabla
+
+    &__thead {
+        background-color: v.$gris-oscuro;
+        color: v.$blanco;
+    }
+
+    &__th {
+        padding: 1rem;
+        text-align: left;
+    }
+
+    &__tr {
+        &:nth-of-type(even) { //Poner las franjas de colores en la tabla para distingar las casillas
+            background-color: darken($color: v.$gris-claro, $amount: 5%);
+        }
+    }
+
+    &__td {
+        padding: 1.5rem 1rem;
+
+        &--acciones {
+            @extend .table__td;
+            display: flex;
+            justify-content: flex-end; //Colocarlos del lado derecho
+            gap: 2rem;
+            align-items: center;
+        }
+    }
+     &__acciones {
+        all: unset; //Quita lo estilos predeterminados del enlace de editar y del boton de eliminar
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        font-weight: v.$bold;
+
+        &--editar {
+            color: v.$azul;
+        }
+        &--eliminar {
+            color: v.$rojo;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+     }
+}
